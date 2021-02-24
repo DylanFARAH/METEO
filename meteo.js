@@ -14,5 +14,10 @@ function buttonClickGET(){
         alert("error");
     })
     .always(function(){
+<<<<<<< HEAD
     })
 }
+=======
+    });
+}
+>>>>>>> 6ff074f10d6d7c852154a8b7a064e955f18e2290
