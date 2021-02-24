@@ -1,6 +1,8 @@
 var callBackGetSuccess = function(data){
-    console.log("donnees api",data)
+    console.log("donnees meteo",data)
+    //alert("la temperature est de:" + data.records[0].fields.tc)
     var element = document.getElementById("zone_meteo");
+    element.innerHTML = "La temeprature est de " +data.records[0].fields.tc;
 }
 
 function buttonClickGET(){
@@ -12,5 +14,5 @@ function buttonClickGET(){
         alert("error");
     })
     .always(function(){
-    });
+    })
 }
