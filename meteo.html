@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="meteo.js"></script>
+        <link rel="stylesheet" href="style.css">
         <title>meteo</title>
     </head>
     <body>
-        
-        <input type="button" value="api meteo" onclick="buttonClickGET()"/>
-        <p id="zone_meteo">Temperature</p>
+        <div class="input">
+            <input type="text" placeholder="Ville,Pays" class="input_text">
+            <input type="submit" value="Rechercher" class="submit" onclick="buttonClickGET()"/>
+        </div>
+
+        <div class="container">
+            <div class="card">
+                <p id="zone_meteo"></p>
+                <p id="vent"></p>
+                <p id="temmps_present"></p>
+                <h1 class="name" id="name"></h1>
+                <p class="temp"></p>
+                <p class="clouds"></p>
+                <p class="desc"></p>
+            </div>
+        </div>
     </body>
 </html>
