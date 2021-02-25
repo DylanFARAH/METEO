@@ -6,7 +6,7 @@
   
   body{
     font-family: "Nunito",sans-serif;
-    background: #f8f8f8;
+    background: url("images/background.png");
   }
   
   .input{
@@ -42,6 +42,7 @@
     height: 40vh;
     margin: 50px auto;
     border-radius: 2px;
+    display: inline;
   }
   
   

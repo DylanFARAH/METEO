@@ -6,14 +6,13 @@
         <link rel="stylesheet" href="style.css">
         <title>meteo</title>
     </head>
-    <body>
+    <body style="display: inline;">
         <div class="input">
             <input type="text" placeholder="Ville,Pays" class="input_text">
             <input type="submit" value="Rechercher" class="submit" onclick="buttonClickGET()"/>
         </div>
-
         <div class="container">
-            <div class="card">
+            <div id="card" class="card" style="display:none">
                 <p id="zone_meteo"></p>
                 <p id="vent"></p>
                 <p id="temmps_present"></p>
