@@ -1,6 +1,5 @@
 var callBackGetSuccess = function(data){
     console.log("donnees meteo",data)
-    //alert("la temperature est de:" + data.records[0].fields.tc)
     var element = document.getElementById("zone_meteo");
     element.innerHTML = "La temperature est de " +data.records[0].fields.ww+"*C";
     var element = document.getElementById("vent");
