@@ -1,9 +1,13 @@
 var callBackGetSuccess = function(data){
     console.log("donnees meteo",data)
-    var element = document.getElementById("zone_meteo");
+    var element = document.getElementById("heure");
+    element.innerHTML = "Il est" +data.records[0].fields.date;
+    var element = document.getElementById("temps");
     element.innerHTML = "La temperature est de " +data.records[0].fields.ww+"*C";
     var element = document.getElementById("vent");
     element.innerHTML = "La vitesse du vent est de " +data.records[0].fields.ff+"km/h";
+    var element = document.getElementById("humidite");
+    element.innerHTML = "L'humidite est de " +data.records[0].fields.u+"%";
 }
 
 function buttonClickGET(){
