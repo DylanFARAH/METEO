@@ -5,13 +5,22 @@
         <script src="meteo.js"></script>
         <link rel="stylesheet" href="style.css">
         <title>meteo</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
     </head>
-    <body style="display: inline;">
+
+    <body style="display: inline">
         <div class="input">
             <input type="text" placeholder="Ville,Pays" class="input_text">
             <input type="submit" value="Rechercher" class="submit" onclick="buttonClickGET()"/>
         </div>
-        <div class="container">
+        <div class="container" style="display: flexbox">
+            <div id ="carte"></div>
             <div id="card" class="card" style="display:none">
                 <p id="heure"></p>
                 <p id="temps"></p>
@@ -20,7 +29,17 @@
                 <h1 class="name" id="name"></h1>
                 <p class="temp"></p>
                 <p class="desc"></p>
+
+                <script>
+                    const carte = L.map('carte').setView([47, 2], 6);
+                    const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+                    
+                    const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                    const tiles = L.tileLayer(tileUrl,{attribution});
+                    tiles.addTo(carte);
+                </script>
             </div>
+            
         </div>
     </body>
 </html>

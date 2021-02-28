@@ -10,9 +10,9 @@ var callBackGetSuccess = function(data){
     element.innerHTML = "L'humidite est de " +data.records[0].fields.u+"%";
 }
 
+
 function buttonClickGET(){
     document.getElementById("card").style.display = "block";
-
     var url="https://data.opendatasoft.com/api/records/1.0/search/?dataset=observation-meteorologique-historiques-france-synop%40grandparissud&q=&sort=date&timezone=Europe%2FParis&rows=99"
 
     $.get(url, callBackGetSuccess).done(function(){

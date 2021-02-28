@@ -1,8 +1,8 @@
 *{
-    margin:50;
-    padding: 50;
-    box-sizing: border-box;
-  }
+  margin:50;
+  padding: 50;
+  box-sizing: border-box;
+}
   
   body{
     font-family: "Nunito",sans-serif;
@@ -40,9 +40,9 @@
     width: 50%;
     background: #e7e7e7;
     height: 40vh;
-    margin: 50px auto;
+    margin: 50px right;
     border-radius: 2px;
-    display: inline;
+    display: block;
   }
   
   
@@ -64,3 +64,5 @@
     font-size:20px;
   }
   
+  #carte{ height :600px;
+          width: 600px}
