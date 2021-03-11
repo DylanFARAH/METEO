@@ -16,8 +16,10 @@
                     <input id="longitude" type="number" placeholder="longitude" class="input_text" required="required">
                     <input id="latitude" type="number" placeholder="latitude" class="input_text" required="required">
                     <input id="rayon" type="number" placeholder="rayon (en Km)" class="input_text" required="required">
-                    <input type="submit" value="Rechercher" class="submit" onclick="buttonClickGET()"/>      
-                    <table class="table table-striped" style="margin-top: 20px">
+                    <input type="submit" value="Rechercher" class="btn btn-primary" onclick="buttonClickGET()"/>  
+                    <input type="submit" class="btn btn-secondary" value="CSV" class="submit" onclick="createCSV()"/> 
+
+                    <table class="table table-striped" style="margin-top:20px;">
                     <thead>
                         <tr>
                             <th>date</th>
