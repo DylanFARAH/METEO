@@ -6,6 +6,12 @@ var callBackGetSuccess = function(data){
 
     donnee=data;
 
+//////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                     //
+//                          AFFICHAGE DES DONNEES SOUS FORME DE TABLEAU                //
+//                                                                                     //
+/////////////////////////////////////////////////////////////////////////////////////////
+
     if(document.getElementsByTagName("tbody")[0]){
         let d = document.getElementsByTagName("table")[0];
         let d_nested = document.getElementsByTagName("tbody")[0];
@@ -46,7 +52,7 @@ var callBackGetSuccess = function(data){
             row.appendChild(cell);
     
             var cell = document.createElement("td");
-            var cellText = document.createTextNode(aux.fields.t);
+            var cellText = document.createTextNode(Math.round(aux.fields.t-273.15));
             cell.appendChild(cellText);
             row.appendChild(cell);
     
@@ -82,9 +88,13 @@ var callBackGetSuccess = function(data){
           // put the <tbody> in the <table>
           tbl.appendChild(tblBody);
 
+/////////////////////////////////////////////////////////////////////////////////////
+
 }
 
 function buttonClickGET(){
+
+    //Récupération des coordonnées rentrés par l'utilisateur
     longitude = document.getElementById("longitude").value;
     latitude = document.getElementById("latitude").value;
     rayon = document.getElementById("rayon").value * 1000;
@@ -92,6 +102,7 @@ function buttonClickGET(){
     var d1 = document.getElementById("date").value;
     var date_debut = new Date(d1);
 
+    // Rayon à 100 km par défaut
     if(!rayon){
         rayon = 100000;
     }
@@ -100,6 +111,7 @@ function buttonClickGET(){
     date_fin.setDate(date_debut.getDate()+90);
     d2=date_fin.toISOString().split('T')[0];
 
+    // Récupération des données de l'API
     var url="https://data.opendatasoft.com/api/records/1.0/search/?dataset=donnees-synop-essentielles-omm%40public&q=date%3A%5B"+d1+"T23%3A00%3A00Z+TO+"+d2+"T22%3A59%3A59Z%5D"+"&rows=1000&sort=date&timezone=Europe%2FParis&geofilter.distance="+latitude+"%2C"+longitude+"%2C"+rayon
 
     $.get(url, callBackGetSuccess).done(function(){
@@ -111,12 +123,13 @@ function buttonClickGET(){
     })
 }
 
+// Permet de télécharger un fichier CSV
 function  createCSV(){
     var CSVText="";
 
     if(longitude && latitude && rayon ){
     donnee.records.forEach(aux => {
-        CSVText+=aux.fields.date+';'+aux.fields.nom+';'+aux.fields.nom_reg+';'+aux.fields.nom_dept+';'+aux.fields.t+';'+aux.fields.dd+';'+aux.fields.ff+';'+aux.fields.u+';'+aux.fields.etat_sol+';'+aux.fields.ht_neige+';'+"\n";
+        CSVText+=aux.fields.date+';'+aux.fields.nom+';'+aux.fields.nom_reg+';'+aux.fields.nom_dept+';'+Math.round(aux.fields.t-273.15)+';'+aux.fields.dd+';'+aux.fields.ff+';'+aux.fields.u+';'+aux.fields.etat_sol+';'+aux.fields.ht_neige+';'+"\n";
     });
 
     var a         = document.createElement('a');
