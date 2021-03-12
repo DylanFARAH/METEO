@@ -13,9 +13,9 @@
         <div>
                 <div id="card" class="container mt-4" >
                     <h1>Météo</h1>                
-                    <input id="longitude" type="number" placeholder="longitude" class="input_text" required="required">
-                    <input id="latitude" type="number" placeholder="latitude" class="input_text" required="required">
-                    <input id="rayon" type="number" placeholder="rayon (en Km)" class="input_text" required="required">
+                    <input id="longitude" type="number" placeholder="longitude" class="input_text" required="required" min=0 >
+                    <input id="latitude" type="number" placeholder="latitude" class="input_text" required="required" min=0 >
+                    <input id="rayon" type="number" placeholder="rayon (en Km)" class="input_text" required="required" min=0 >
                     <input type="submit" value="Rechercher" class="btn btn-primary" onclick="buttonClickGET()"/>  
                     <input type="submit" class="btn btn-secondary" value="CSV" class="submit" onclick="createCSV()"/> 
 
