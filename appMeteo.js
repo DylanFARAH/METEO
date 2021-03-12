@@ -88,11 +88,19 @@ function buttonClickGET(){
     longitude = document.getElementById("longitude").value;
     latitude = document.getElementById("latitude").value;
     rayon = document.getElementById("rayon").value * 1000;
+
+    var d1 = document.getElementById("date").value;
+    var date_debut = new Date(d1);
+
     if(!rayon){
         rayon = 100000;
     }
 
-    var url="https://data.opendatasoft.com/api/records/1.0/search/?dataset=donnees-synop-essentielles-omm%40public&rows=1000&sort=date&timezone=Europe%2FParis&geofilter.distance="+latitude+"%2C"+longitude+"%2C"+rayon
+    var date_fin = new Date(date_debut);
+    date_fin.setDate(date_debut.getDate()+90);
+    d2=date_fin.toISOString().split('T')[0];
+
+    var url="https://data.opendatasoft.com/api/records/1.0/search/?dataset=donnees-synop-essentielles-omm%40public&q=date%3A%5B"+d1+"T23%3A00%3A00Z+TO+"+d2+"T22%3A59%3A59Z%5D"+"&rows=1000&sort=date&timezone=Europe%2FParis&geofilter.distance="+latitude+"%2C"+longitude+"%2C"+rayon
 
     $.get(url, callBackGetSuccess).done(function(){
     })
